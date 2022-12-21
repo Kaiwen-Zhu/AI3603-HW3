@@ -126,6 +126,7 @@ def marginalizeFactor(factorTable, hiddenVar):
         res["probs"] = grouped['probs'].transform('sum')
         res.drop(labels=[hiddenVar], axis=1, inplace=True)
         res.drop_duplicates(inplace=True)
+        res.index = range(len(res))
     return res
 
 ## Update BayesNet for a set of evidence variables
@@ -146,6 +147,8 @@ def evidenceUpdateNet(bayesnet, evidenceVars, evidenceVals):
             if var in df_res.columns:
                 # delete rows where var != val
                 df_res.drop(df_res[df_res[var] != val].index, inplace=True)
+                # reindex
+                df_res.index = range(len(df_res))
         res.append(df_res)
     return res
 
