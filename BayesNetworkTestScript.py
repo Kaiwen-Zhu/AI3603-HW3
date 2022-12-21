@@ -190,7 +190,7 @@ for outcome in health_outcomes:
     outcome_prob = income_outcome_p['probs']
     plt.plot(income_level, outcome_prob)
 plt.legend(health_outcomes)
-plt.xlabel('level of income')
+plt.xlabel('income status')
 plt.ylabel('probability of outcome')
 plt.show()
 print()
@@ -214,8 +214,8 @@ p_with_habit = analyse_habit_health(whole_net_p4, plot=0)
 evi_pos = np.arange(4)  # positions of labels of evidences
 width = 0.25  # width of a bar
 for outcome in health_outcomes:
-    plt.bar(evi_pos-width/2, p_without_habit[outcome], width, label='prob without inference of habits')
-    plt.bar(evi_pos+width/2, p_with_habit[outcome], width, label='prob with inference of habits')
+    plt.bar(evi_pos-width/2, p_without_habit[outcome], width, label='prob without direct relationships between habits and outcomes')
+    plt.bar(evi_pos+width/2, p_with_habit[outcome], width, label='prob with direct relationships between habits and outcomes')
     plt.xticks(evi_pos, labels=['bad habits', 'good habits', 'poor health', 'good health'])
     plt.xlabel(f'condition')
     plt.ylabel(f'probability of {outcome}')
