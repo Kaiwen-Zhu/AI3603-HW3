@@ -1,0 +1,314 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% An example of a lab report write-up.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a combination of several labs that I have done in the past for
+% Computer Engineering, so it is not to be taken literally, but instead used as
+% a great starting template for your own lab write up.  When creating this
+% template, I tried to keep in mind all of the functions and functionality of
+% LaTeX that I spent a lot of time researching and using in my lab reports and
+% include them here so that it is fairly easy for students first learning LaTeX
+% to jump on in and get immediate results.  However, I do assume that the
+% person using this guide has already created at least a "Hello World" PDF
+% document using LaTeX (which means it's installed and ready to go).
+%
+% My preference for developing in LaTeX is to use the LaTeX Plugin for gedit in
+% Linux.  There are others for Mac and Windows as well (particularly MikTeX).
+% Another excellent plugin is the Calc2LaTeX plugin for the OpenOffice suite.
+% It makes it very easy to create a large table very quickly.
+%
+% Professors have different tastes for how they want the lab write-ups done, so
+% check with the section layout for your class and create a template file for
+% each class (my recommendation).
+%
+% Also, there is a list of common commands at the bottom of this document.  Use
+% these as a quick reference.  If you'd like more, you can view the "LaTeX Cheat
+% Sheet.pdf" included with this template material.
+%
+% (c) 2009 Derek R. Hildreth <derek@derekhildreth.com> http://www.derekhildreth.com
+% This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/1.0/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \documentclass[aps,letterpaper,10pt]{revtex4}
+\documentclass[12pt]{article}
+% \input kvmacros % For Karnaugh Maps (K-Maps)
+
+\usepackage{pdfpages}
+\usepackage{graphicx} % For images
+\usepackage{float}    % For tables and other floats
+\usepackage{verbatim} % For comments and other
+\usepackage{amsmath}  % For math
+\usepackage{amssymb}  % For more math
+\usepackage{fullpage} % Set margins and place page numbers at bottom center
+\usepackage{listings} % For source code
+\usepackage{subfig}   % For subfigures
+% \usepackage[usenames,dvipsnames]{color} % For colors and names
+\usepackage[pdftex]{hyperref} % For hyperlinks and indexing the PDF
+\usepackage{url}
+% \usepackage{longtable}
+\usepackage{booktabs}
+\hypersetup{ % play with the different link colors here
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue % set to black to prevent printing blue links
+}
+\usepackage[ruled, lined, boxed, linesnumbered,  commentsnumbered, noend]{algorithm2e}
+% \usepackage{caption}
+% \usepackage{subcaption}
+
+\definecolor{mygrey}{gray}{.96} % Light Grey
+\lstset{
+	language=[ISO]C++,              % choose the language of the code ("language=Verilog" is popular as well)
+   tabsize=3,							  % sets the size of the tabs in spaces (1 Tab is replaced with 3 spaces)
+	basicstyle=\tiny,               % the size of the fonts that are used for the code
+	numbers=left,                   % where to put the line-numbers
+	numberstyle=\tiny,              % the size of the fonts that are used for the line-numbers
+	stepnumber=2,                   % the step between two line-numbers. If it's 1 each line will be numbered
+	numbersep=5pt,                  % how far the line-numbers are from the code
+	backgroundcolor=\color{mygrey}, % choose the background color. You must add \usepackage{color}
+	%showspaces=false,              % show spaces adding particular underscores
+	%showstringspaces=false,        % underline spaces within strings
+	%showtabs=false,                % show tabs within strings adding particular underscores
+	frame=single,	                 % adds a frame around the code
+	tabsize=3,	                    % sets default tabsize to 2 spaces
+	captionpos=b,                   % sets the caption-position to bottom
+	breaklines=true,                % sets automatic line breaking
+	breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+	%escapeinside={\%*}{*)},        % if you want to add a comment within your code
+	commentstyle=\color{BrickRed}   % sets the comment style
+}
+
+% Make units a little nicer looking and faster to type
+\newcommand{\Hz}{\textsl{Hz}}
+\newcommand{\KHz}{\textsl{KHz}}
+\newcommand{\MHz}{\textsl{MHz}}
+\newcommand{\GHz}{\textsl{GHz}}
+\newcommand{\ns}{\textsl{ns}}
+\newcommand{\ms}{\textsl{ms}}
+\newcommand{\s}{\textsl{s}}
+
+
+
+% TITLE PAGE CONTENT %%%%%%%%%%%%%%%%%%%%%%%%
+% Remember to fill this section out for each
+% lab write-up.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\labno}{05}
+\newcommand{\labtitle}{
+{\fontsize{15pt}{18pt}\selectfont AI 3603 Artificial Intelligence: Principles and Techniques}}
+\newcommand{\authorname}{Kaiwen Zhu 520030910178}
+\newcommand{\hw}{3}
+% END TITLE PAGE CONTENT %%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}  % START THE DOCUMENT!
+
+
+% TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% If you'd like to change the content of this,
+% do it in the "TITLE PAGE CONTENT" directly above
+% this message
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\begin{center}
+{\Large \textsc{\labtitle} \\ \vspace{4pt}}
+\rule[13pt]{\textwidth}{1pt} \\ \vspace{150pt}
+{\large By: \authorname \\ \vspace{10pt}
+HW\#: \hw \\ \vspace{10pt}
+\today}
+\end{center}
+\end{titlepage}
+% END TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Problem 1}
+The size of the network is $131072 = 8 \times 2 \times 2 \times 2 \times 2 \times 4 \times 4 \times 2 \times 2 \times 2 \times 2 \times 4$, which is the product of the numbers of values every variable can take respectively. The program result is shown in Figure \ref{res_P1}.
+\begin{figure}[H]
+    \centering
+    \includegraphics{res_P1.png}
+    \caption{Program result of problem 1}
+    \label{res_P1}
+\end{figure}
+
+\section{Problem 2}
+For the four health outcomes (diabetes, stroke, heart attack, angina), the four subtables of Table \ref{P2_table} list the probabilities given bad habits, good habits, poor health or good health. The program result is shown in Figure \ref{res_P2}.
+\begin{table}[H]
+    \centering
+    \caption{\label{P2_table}Probabilities of health outcomes given conditions of habits or health}
+    \subfloat[Probability of diabetes]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+                1 & 0.179597  &   0.075195  &   0.115423  &   0.057710 \\
+                2 & 0.008754  &   0.009409  &   0.007662  &   0.009543 \\
+                3 & 0.791160  &   0.903426  &   0.860873  &   0.922194 \\
+                4 & 0.020489  &   0.011970  &   0.016043  &   0.010553 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \\
+    \subfloat[Probability of stroke]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+                1  &  0.053214  &   0.029202  &  0.082686  &   0.01446 \\
+                2  &  0.946786  &   0.970798  &  0.917314  &   0.98554 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \\
+    \subfloat[Probability of attack]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+                1 &   0.085704  &   0.036655  &  0.140784  &   0.016161 \\
+                2 &   0.914296  &   0.963345  &  0.859216  &   0.983839 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \\
+    \subfloat[Probability of angina]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+                1  &   0.09542  &    0.03551  &  0.161608  &   0.013326 \\
+                2  &   0.90458  &    0.96449  &  0.838392  &   0.986674 \\
+        \bottomrule
+        \end{tabular}
+    }
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{res_P2.png}
+    \caption{Program result of problem 2}
+    \label{res_P2}
+\end{figure}
+
+\section{Problem 3}
+For the four health outcomes (diabetes, stroke, heart attack, angina), Figure \ref{P3_figure} shows the probabilities given different income statuses. The program result is shown in Figure \ref{res_P3}.\par
+Clearly, the probabilities of health outcomes decrease almost linearly with increasing income status in general. It is easy to understand: a person with more income usually lives a better life, including superior healthcare, less exposure to health risks (like heavy work and harsh environment) and stronger health consciousness.\par
+The only abnormality is that people at income status 2 (whose annual income is between \$10000 and \$15000) have a higher risk of stroke, attack or angina than those at income status 1. One possible explanation is that these people may be pillars of less affluent families, who laboriously earn not-too-little money, with hard work damaging their health.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{P3.png}
+    \caption{Relations between income and health outcomes}
+    \label{P3_figure}
+\end{figure}
+\begin{figure}
+    \centering
+    \subfloat{\includegraphics[width=0.4\textwidth]{res_P3_1.png}}
+    \hspace{3pt}
+    \subfloat{\includegraphics[width=0.4\textwidth]{res_P3_2.png}}
+    \caption{\label{res_P3}Program result of problem 3}
+\end{figure}
+
+
+\section{Problem 4}
+The assumption is that there are no direct relationships between these habits and health outcomes. That is, if these three health conditions (BMI, blood pressure, and level of cholesterol) are given, then the probability of outcomes is independent of habits. Mathematically,
+$$\Pr(outcome \ |\ bmi, bp, cholesterol) = \Pr(outcome \ |\ bmi, bp, cholesterol, smoke, exercise).$$\par
+Now we test the validity of this assumption. Having added edges from smoking and exercise to the four outcomes, Table \ref{P4_table} lists the probabilities of health outcomes given habits or health conditions. The program result is shown in Figure \ref{res_P4}.\par
+Figure \ref{P4_cmp} shows the difference between results before and after adding these edges, which is highly conspicuous when habits are given: assuming direct relationships between the two habits and the outcomes, the probabilities of outcomes are much higher than previously believed given bad habits and lower given good habits. This strongly demonstrates that bad habits of smoking and exercising less will directly induce these health problems, and vice versa. Note that there is almost no difference when health conditions are given because variables \verb|smoke| and \verb|exercise| have been marginalized.\par
+Therefore, the assumption that there is no direct relationships between these habits and health outcomes is not valid.\par
+\begin{table}[H]
+    \centering
+    \caption{\label{P4_table}Probabilities of health outcomes given conditions of habits or health}
+    \subfloat[Probability of diabetes]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+                1  &  0.245992  &   0.056227  &   0.121241  &  0.055937 \\
+                2  &  0.006928  &   0.010160  &   0.007492  &  0.009697 \\
+                3  &  0.723721  &   0.923710  &   0.854769  &  0.924042 \\
+                4  &  0.023359  &   0.009903  &   0.016498  &  0.010323 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \\
+    \subfloat[Probability of stroke]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+               1  &  0.080488  &   0.019464  &   0.082697  &   0.014544 \\
+               2  &  0.919512  &   0.980536  &   0.917303  &   0.985456 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \\
+    \subfloat[Probability of attack]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+                1  &  0.135301  &   0.021213  &  0.140083  &   0.016183 \\
+                2  &  0.864699  &   0.978787  &  0.859917  &   0.983817 \\
+        \bottomrule
+        \end{tabular}
+    }
+    \\
+    \subfloat[Probability of angina]{
+        \begin{tabular}{ccccc}
+        \toprule
+                 outcome level & bad habits & good habits & poor health & good health \\
+        \midrule
+                1  &  0.138072  &   0.023948  &  0.161096  &   0.013328 \\
+                2  &  0.861928  &   0.976052  &  0.838904  &   0.986672 \\
+        \bottomrule
+        \end{tabular}
+    }
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{res_P4.png}
+    \caption{Program result of problem 4}
+    \label{res_P4}
+\end{figure}
+\begin{figure}
+    \centering
+    \subfloat[diabetes]{\includegraphics[width=0.5\textwidth]{P4_diabetes.png}}
+    \subfloat[stroke]{\includegraphics[width=0.5\textwidth]{P4_stroke.png}}\\
+    \subfloat[attack]{\includegraphics[width=0.5\textwidth]{P4_attack.png}}
+    \subfloat[angina]{\includegraphics[width=0.5\textwidth]{P4_angina.png}}
+    \caption{\label{P4_cmp}Comparison between results before and after adding edges}
+\end{figure}
+
+
+\section{Problem 5}
+The assumption is that there are no direct relationships among health outcomes. That is, if these habits and health conditions are given, then the probability of one outcome is independent of another outcome.\par
+Now we test the validity of this assumption. Having added edges from diabetes to stroke, Figure \ref{P5_cmp} shows values of
+$$\Pr(stroke=1 \ |\ diabetes=1), \Pr(stroke=1 \ |\ diabetes=3)$$
+before and after adding these edges. The program result is shown in Figure \ref{res_P5}.\par
+Again, the difference is remarkable: assuming direct relationships between stroke and diabetes, the probability of stroke is much higher than previously believed with diabetes and lower without diabetes. This demonstrates that diabetes will directly induce stroke and vice versa.\par
+Therefore, the assumption that there are no direct relationships among health outcomes is not valid.\par
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{P5.png}
+    \caption{Comparison between results before and after adding edges}
+    \label{P5_cmp}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics{res_P5.png}
+    \caption{Program result of problem 5}
+    \label{res_P5}
+\end{figure}
+
+
+\section{Problem 6}
+The results of provided examples are shown in Figure \ref{res_P6}.\par
+\begin{figure}[H]
+    \centering
+    \subfloat{\includegraphics[width=0.4\textwidth]{res_P6_1.png}}
+    \hspace{3pt}
+    \subfloat{\includegraphics[width=0.4\textwidth]{res_P6_2.png}}
+    \caption{\label{res_P6}Program result of examples}
+\end{figure}
+
+
+\end{document} % DONE WITH DOCUMENT!
+
